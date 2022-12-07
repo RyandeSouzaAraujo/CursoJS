@@ -1,4 +1,5 @@
-const sum = (...args) => args.reduce
+arr = ["pao", "batata", "repolho"]
  
 
-console.log(sum(3, 4, 5, 8))
+console.log( arr.length
+)
