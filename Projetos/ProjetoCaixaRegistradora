@@ -1,0 +1,23 @@
+function checkCashRegister(price, cash, cid) {
+  
+  let moeda = {'PENNY': 0.01 ,"NICKEL": 0.05, 'DIME': 0.1, 'QUARTER': 0.25, 'ONE': 1, 'FIVE': 5, 'TEN': 10, 'TWENTY': 20, 'ONE HUNDRED': 100}
+  let obj = {}
+  let change = []
+  let troco = cash - price
+  while(troco > 0){
+  for(let i = cid.length - 1; i > 0; i--){
+    let cont = 0
+    if(troco > moeda[cid[i][0]]){
+      while(troco >= moeda[cid[i][0]] && cid[i][0] == moeda[cid[i][0]]){
+        cont += 1
+        troco -= moeda[cid[i][0]]
+        cid[i][1] -= moeda[cid[i][0]]
+      }
+      change.push([cid[i][0], moeda[cid[i][0]] * cont])
+    }
+  }  
+  
+}
+return change}
+
+console.log(checkCashRegister(19.5, 219.5, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
